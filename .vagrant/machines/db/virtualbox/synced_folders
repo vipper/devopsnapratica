@@ -1,0 +1,1 @@
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/damorim/Gitspace/devops","disabled":false},"/tmp/vagrant-puppet-2/manifests":{"owner":"root","guestpath":"/tmp/vagrant-puppet-2/manifests","hostpath":"/Users/damorim/Gitspace/devops/manifests","disabled":false}}}
