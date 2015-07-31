@@ -1,0 +1,7 @@
+---
+- hosts: monitor
+  sudo: yes
+
+  roles:
+    - common
+    - monitoring

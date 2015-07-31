@@ -33,6 +33,26 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
   end 
 
+  config.vm.define :monitor2 do |monitor_config|
+    monitor_config.vm.box = "ubuntu/trusty32"
+    monitor_config.vm.network :private_network, :ip => "192.168.33.16"
+
+    monitor_config.vm.provision "ansible" do |ansible|
+      ansible.playbook = "monitoring_servers.yaml"
+      ansible.limit = "monitor"
+      ansible.sudo = true
+      ansible.inventory_path = "hosts"
+      ansible.verbose = "-vvvv"
+      ansible.extra_vars = {
+        ansible_ssh_user: "vagrant"
+      }
+    end
+
+    monitor_config.vm.provider 'virtualbox' do |v|
+      v.memory = 1024
+    end
+  end 
+
   
 
 end
